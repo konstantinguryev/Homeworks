@@ -1,4 +1,5 @@
-%Problem 1%
+% Comment: break down into sections by double percentage and space
+%% Problem 1%
 X = [1,1.5,3,4,5,7,9,10];
 Y1 = -2 + 0.5.*X;
 Y2 = -2 + 0.5.*(X.^2);
@@ -7,7 +8,7 @@ hold on
 plot (X, Y2)
 legend ('Y1','Y2')
 hold off
-%Problem 2%
+%% Problem 2%
 X = linspace(-10,20,200);
 Y=((X(1)+X(200))*200)/2;
 %Problem 3%
@@ -21,7 +22,7 @@ A1 = A([1 3],:);
 A1(:,3)=[];
 F = A1;
 x = inv(A)*b;
-%Problem 4%
+%% Problem 4%
 A=[2 4 6; 1 7 5; 3 12 4];
 V = kron(eye(5),A);
 %Problem 5%
@@ -35,11 +36,16 @@ for i = 1:1:5
         end
     end
 end
-%Problem 6%
+%% Problem 6%
 M=csvread('D:\PennState\Empirical Methods\datahw1.csv');
 Y=M(:,5);
 X=[ones(size(M,1),1) M(:,3) M(:,4) M(:,6)];
 n=size(M,1);
+% data contains NaNs, if you do not delete them, they will make estimates
+% all NaNs. you probably have manually deleted them, but this code does not
+% do that. 
+%  also, inv(X'X)*beta may be bad in old matlab versions, better do
+%  (X'X)\beta. does the same thing, but works faster on all matlab
 bh=inv(X'*X)*X'*Y;
 % Calculating errors manually
 eh=Y-X*bh; 
