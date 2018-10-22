@@ -1,0 +1,105 @@
+\documentclass[a4paper,12pt]{article}
+ \usepackage[utf8]{inputenc}
+ \usepackage[left=2cm,top=1cm,right=2cm,bottom=1.5cm,nohead]{geometry}
+%\usepackage{wrapfig} % Обтекание рисунков текстом
+%\usepackage{floatflt}% Обтекание таблиц текстом
+ \usepackage{amsmath} % Математические окружения AMS
+ \usepackage{amsfonts} % Шрифты AMS
+ \usepackage{amssymb} % Символы AMS
+ \usepackage{listings}% to add computer code
+ \usepackage{color}
+ \definecolor{mygreen}{RGB}{28,172,0} % color values Red, Green, Blue
+\definecolor{mylilas}{RGB}{170,55,241}
+    \usepackage{graphicx} % Вставить pdf- или png-файлы
+  \usepackage{euscript} % Красивый шрифт
+%\usepackage{extsizes} % Возможность сделать 14-й шрифт
+ \linespread{1.5} % Интерлиньяж
+% \usepackage[usenames,dvipsnames,svgnames,table,rgb]{xcolor}% чтоб были гиперссылки и чтоб были цвета
+
+\usepackage{hyperref} % Гиперссылки
+
+%\hypersetup{
+% colorlinks = true,
+ %linkcolor = MidnightBlue, % ссылки на всякие разделы (их цвет)
+ %urlcolor = [rgb]{0,0,1}, % чтоб задавать цыета пиксела - red green blue. не рекомендуется, если потом печатать.
+ %citecolor = black
+%}
+%\usepackage{pdflscape}
+%\oddsidemargin=10mm
+%\topmargin=-15mm
+\usepackage{multicol}
+%\hoffset=5mm % см при печати
+%\voffset=4.2mm
+%\textheight = 720pt
+%\textwidth=442pt
+
+\begin{document}
+\maketitle \hrulefill
+\lstset{language=Matlab,%
+    %basicstyle=\color{red},
+    breaklines=true,%
+    morekeywords={matlab2tikz},
+    keywordstyle=\color{blue},%
+    morekeywords=[2]{1}, keywordstyle=[2]{\color{black}},
+    identifierstyle=\color{black},%
+    stringstyle=\color{mylilas},
+    commentstyle=\color{mygreen},%
+    showstringspaces=false,%without this there will be a symbol in the places where there is a space
+    numbers=left,%
+    numberstyle={\tiny \color{black}},% size of the numbers
+    numbersep=9pt, % this defines how far the numbers are from the text
+    emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
+    %emph=[2]{word1,word2}, emphstyle=[2]{style},
+}
+
+\begin{center}
+
+\textbf {\Large{Empirical Methods HA 4}}\\
+Konstantin Guryev\\
+Pennsylvania State University\\
+2018
+\end{center}
+
+\textbf{Problem \textnumero \,1 }
+See the code. I use $qnwequi$ function from the CEtools. $\pi = 3.1414$ (100000 points).
+
+\textbf{Problem \textnumero \,2 }
+See the code. I use $newton\_coates$ function. $\pi = 3.1416$ (10000 points).
+
+\textbf{Problem \textnumero \,3 }
+See the code. $\pi = 3.1416$ (100000 points). The approximation is more precise with a single dimensional integral given the same number of points.
+
+
+\textbf{Problem \textnumero \,4 }
+See the code. $\pi = 3.1416$ (10000 points).
+\vspace{\baselineskip}
+
+\textbf{Problem \textnumero \,5 }
+\vspace{\baselineskip}
+
+$Results$ = 
+\begin{pmatrix}
+  0.0216& 0.0016& 0.0008 \\
+  0.0104& 0.0009& 0.0000 \\
+  0.0113& 0.0003& 0.0000 \\
+  0.0061& 0.0002& 0.0000 
+\end{pmatrix}.
+\vspace{\baselineskip}
+
+First column refers to 100 draws, second to 1000 and third to 10000 draws. The rows from 1 to 4 refer to Newton-Coates for double integral, Newton-Coates for single integral, quasi-Monte Carlo for double integral and quasi-Monte Carlo for single integral respectively.
+
+\vspace{\baselineskip}
+
+
+
+
+\newpage
+\section*{Matlab Code} \lstinputlisting{qnwequi.m}
+
+\newpage
+\section*{Matlab Code} \lstinputlisting{newton_coates.m}
+
+\newpage
+\section*{Matlab Code} \lstinputlisting{HA_4_Guryev.m}
+
+\end{document}
