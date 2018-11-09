@@ -33,6 +33,8 @@ b_nls = lsqnonlin(f,b_nls_init,[],[],options3);
 fprintf('Obj Function: %f \n',sum(f(b_nls).^2));
 b_nls
 
+
+% so, what is your take which method works best?
 %% Problem 4
 b_nls_nm = [3;0;0;0;0;0];
 nls_f=@(b)sum((y-exp(X*b)).^2);
