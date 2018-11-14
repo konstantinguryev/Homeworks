@@ -7,7 +7,14 @@ pimc1 = 4*w1'*p1; %quasi-Monte Carlo
 %% Problem 2
 f1=@(x,y)(double(x.^2+y.^2<=1));
 [x2,wx2] = newton_coates(10000,0,1); 
+% I think there is a function in compecon that does it for you
+
+
+
 f_val2 = zeros(10000,10000);
+
+% aviod loops in matlab, they are slower. use matrix operations. check
+% answer key
 for i = 1:length(x2)
     f_val2(i,:) = f1(repmat(x2(i),1,length(x2)),x2');
 end
