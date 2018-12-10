@@ -45,6 +45,8 @@ fun2=@(x) -LLH_1(data.N,x(1),x(2),x(3),LH_i,2);
 
 %% Problem 4
 fun3=@(x) -LLH_2(data.N,x(1),x(2),x(3),x(4),x(5),x(6),LH_i);
+% check out the answer key to see how to use only one function with
+% different constraints.
 
 st_val2=[3;1.5;2;1;2;-0.5];
 A=diag([0,0,-1,0,-1,0]);
